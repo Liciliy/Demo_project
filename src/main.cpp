@@ -8,6 +8,7 @@
 
 #include "BoolSerializer.hpp"
 #include "UIntSerializer.hpp"
+#include "IntSerializer.hpp"
 
 using json = nlohmann::json;
 
@@ -139,6 +140,17 @@ int main ()
     {
         std::bitset<8> bit_repr(val);
         std::cout << "Serialized Uint: " << bit_repr << std::endl;
+    }
+
+    int64_t i64test = -12;
+    auto is = IntSerializer();
+
+    auto ires64 = is.serialize(DataToSerialize(&i64test));
+
+    for (const auto& val :ires64)
+    {
+        std::bitset<8> bit_repr(val);
+        std::cout << "Serialized Int: " << bit_repr << std::endl;
     }
 }
 

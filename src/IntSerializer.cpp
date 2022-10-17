@@ -3,12 +3,13 @@
 
 std::vector<uint8_t> IntSerializer::serialize(const DataToSerialize& dts)
 {
-    if (dts.getUint() == nullptr)
+    if (dts.getInt() == nullptr)
     {
-        throw std::invalid_argument("Provided UInt pointer is a nullptr.");
+        throw std::invalid_argument("Provided Int pointer is a nullptr.");
     }
 
-    this->currentlyProcessedValue = *(dts.getUint());
+    this->signedCurrProcValue = *(dts.getInt());
+    this->currentlyProcessedValue = abs(signedCurrProcValue);
 
     this->currentValueByteSize = calculateDataLengthInBytes();
 
@@ -25,54 +26,14 @@ std::vector<uint8_t> IntSerializer::serialize(const DataToSerialize& dts)
     return result;
 }
 
-uint64_t IntSerializer::calculateDataLengthInBytes()
-{
-    uint64_t result = UINT8_SIZE_IN_BYTES;
-
-    if (this->currentlyProcessedValue & UINT64_MASK)
-    {
-        result = UINT64_SIZE_IN_BYTES;
-    }
-    else if (this->currentlyProcessedValue & UINT32_MASK)
-    {
-        result = UINT32_SIZE_IN_BYTES;
-    }
-    else if (this->currentlyProcessedValue & UINT16_MASK)
-    {
-        result = UINT16_SIZE_IN_BYTES;
-    }
-
-    return result;
-}
-
 void IntSerializer::fillContainerWithHeader(std::vector<uint8_t>&  headerContainer)
 {
-    uint8_t header = (INT_TYPE << TYPE_BIT_POS) 
-                   | (this->currentValueIntID << INT_ID_BIT_POS);
+    UIntSerializer::fillContainerWithHeader(headerContainer);
 
-    headerContainer[HEADER_POS] = header;
-
-}
-
-void IntSerializer::fillContainerWithLength(std::vector<uint8_t>& lengthContainer)
-{
-    throw NotSupportedException();
-}
-
-void IntSerializer::fillContainerWithData(std::vector<uint8_t>& dataContainer)
-{
-
-    uint64_t numOfByteToWrite = 0;
-
-    while (numOfByteToWrite < this->currentValueByteSize)
+    if (this->signedCurrProcValue < 0)
     {
-        auto shiftedVal = 
-                this->currentlyProcessedValue >> (numOfByteToWrite * BYTE_SIZE);
-        
-        uint8_t chunkToWrite = static_cast<uint8_t>(0xFF & shiftedVal);
-
-        dataContainer[HEADER_SIZE_BYTES + numOfByteToWrite] = chunkToWrite;
-
-        numOfByteToWrite++;
+        headerContainer[HEADER_POS] = headerContainer[HEADER_POS] 
+                                    | (NEGATIVE_INT_SIGN_BIT << INT_SIGN_BIT_POS);
     }
+
 }

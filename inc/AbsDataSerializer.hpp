@@ -43,6 +43,7 @@ class AbsDataSerializer : protected AbsDataTranslator
 {
 public:
     virtual std::vector<uint8_t> serialize(const DataToSerialize& dts) = 0;
+    static uint8_t calculateUintByteSize(const uint64_t& intToCalc);
 
 protected:
 

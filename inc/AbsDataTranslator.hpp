@@ -2,6 +2,16 @@
 #define ABS_DATA_TRANSLATOR
 #include<map>
 
+/**
+ * @brief This class stores data that can be used by both child serializers 
+ *        and (possible) deserializers.
+ * 
+ *        NOTE: Since some class data is not used by all children, it would be
+ *              better to move the data to separate data classes (e.g.,
+ *              string data to string file, int data to int file, etc.).
+ *              However, since it's a test task, this structure should be good 
+ *              enough. 
+ */
 class AbsDataTranslator
 {
 
@@ -24,6 +34,10 @@ protected:
     static constexpr char INT32_ID {0b10};
     static constexpr char INT64_ID {0b11};
 
+    static constexpr char INT_SIGN_BIT_POS {5};
+    static constexpr char POSITIVE_INT_SIGN_BIT {0};
+    static constexpr char NEGATIVE_INT_SIGN_BIT {1};
+
     static constexpr uint64_t UINT64_MASK {0xFFFFFFFF00000000};
     static constexpr uint32_t UINT32_MASK {0xFFFF0000};
     static constexpr uint16_t UINT16_MASK {0xFF00};
@@ -38,6 +52,9 @@ protected:
     static constexpr uint16_t INT8_SIZE_IN_BYTES   {sizeof(int8_t)};
 
     static const std::map<uint64_t, char> NUMBER_OF_BYTES_TO_INT_ID;
+
+    static constexpr char STRING_SIZE_HEADER_BIT_POS  {3};
+    static constexpr char STRING_SIZE_HEADER_BIT_SIZE {3};
 };
 
 

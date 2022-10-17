@@ -27,22 +27,8 @@ std::vector<uint8_t> UIntSerializer::serialize(const DataToSerialize& dts)
 
 uint64_t UIntSerializer::calculateDataLengthInBytes()
 {
-    uint64_t result = UINT8_SIZE_IN_BYTES;
-
-    if (this->currentlyProcessedValue & UINT64_MASK)
-    {
-        result = UINT64_SIZE_IN_BYTES;
-    }
-    else if (this->currentlyProcessedValue & UINT32_MASK)
-    {
-        result = UINT32_SIZE_IN_BYTES;
-    }
-    else if (this->currentlyProcessedValue & UINT16_MASK)
-    {
-        result = UINT16_SIZE_IN_BYTES;
-    }
-
-    return result;
+    return static_cast<uint64_t>(
+        calculateUintByteSize(this->currentlyProcessedValue));
 }
 
 void UIntSerializer::fillContainerWithHeader(std::vector<uint8_t>&  headerContainer)
