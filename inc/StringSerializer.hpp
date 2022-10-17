@@ -1,0 +1,5 @@
+#ifndef STRING_SERIALIZER
+#define STRING_SERIALIZER
+
+
+#endif

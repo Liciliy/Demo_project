@@ -1,0 +1,6 @@
+old files/*
+json_gen_example.txt
+.vscode/*
+*.o
+*.d
+jsonTranslator
