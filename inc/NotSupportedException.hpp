@@ -4,6 +4,11 @@
 #include <exception>
 
 
+/**
+ * @brief Used to prevent usage of inherited methods that are not intended be be
+ *        implemented (hence, used) by children.
+ * 
+ */
 class NotSupportedException : public std::exception {
 public:
     char * what () {
