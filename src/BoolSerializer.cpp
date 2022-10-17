@@ -1,5 +1,6 @@
 #include "BoolSerializer.hpp"
 #include "NotSupportedException.hpp"
+#include "DataToSerializeContainer.hpp"
 
 std::vector<uint8_t> BoolSerializer::serialize(const DataToSerialize& dts)
 {

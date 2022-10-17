@@ -1,5 +1,6 @@
 #include "IntSerializer.hpp"
 #include "NotSupportedException.hpp"
+#include "DataToSerializeContainer.hpp"
 
 std::vector<uint8_t> IntSerializer::serialize(const DataToSerialize& dts)
 {
