@@ -1,10 +1,17 @@
 #include "BoolSerializer.hpp"
 #include "NotSupportedException.hpp"
 
-
-std::vector<uint8_t> BoolSerializer::SerializeBool(const bool& valToSerialize)
+#include <iostream>
+std::vector<uint8_t> BoolSerializer::serialize(const DataToSerialize& dts)
 {
-    this->currentlyProcessedValue = valToSerialize;
+    
+    if (dts.getBool() == nullptr)
+    {
+        throw std::invalid_argument("Provided bool pointer is a nullptr.");
+    }
+    
+    this->currentlyProcessedValue = *(dts.getBool() );
+    
     auto result = std::vector<uint8_t>(HEADER_LENGTH_IN_BYTES);
 
     this->fillContainerWithHeader(result);

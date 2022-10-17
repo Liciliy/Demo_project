@@ -8,7 +8,7 @@
 class BoolSerializer : public AbsDataSerializer
 {
 public:
-    std::vector<uint8_t> SerializeBool(const bool& valToSerialize);
+    std::vector<uint8_t> serialize(const DataToSerialize& dts) override;
 
 private:
     bool currentlyProcessedValue;

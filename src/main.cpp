@@ -6,7 +6,7 @@
 
 #include <cstdio>
 
-
+#include "BoolSerializer.hpp"
 
 using json = nlohmann::json;
 
@@ -113,5 +113,19 @@ int main ()
     static constexpr uint16_t INT64_SIZE_IN_BYTES  {sizeof(int64_t)};
 
     static constexpr uint16_t UINT64_SIZE_IN_BYTES = sizeof(uint64_t);
+
+    BoolSerializer bs = BoolSerializer();
+    
+    auto testVal21 = true;
+    
+    uint64_t testvalint = 12;
+    auto res = bs.serialize(DataToSerialize(&testvalint));
+
+    
+    for (const auto& val : res)
+    {
+        std::bitset<8> bit_repr(val);
+        std::cout << "Serialized bool: " << bit_repr << std::endl;
+    }
 }
 
