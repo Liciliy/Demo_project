@@ -53,8 +53,11 @@ protected:
 
     static const std::map<uint64_t, char> NUMBER_OF_BYTES_TO_INT_ID;
 
-    static constexpr char STRING_SIZE_HEADER_BIT_POS  {3};
-    static constexpr char STRING_SIZE_HEADER_BIT_SIZE {3};
+    static constexpr char STR_LENGTH_SIZE_HEADER_BIT_POS  {3};
+    static constexpr char STR_LENGTH_SIZE_HEADER_BIT_SIZE {3};
+
+    
+    static constexpr char STR_MAX_LENGTH_IN_BYTES {8};
 };
 
 

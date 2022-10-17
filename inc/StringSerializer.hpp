@@ -13,7 +13,11 @@ public:
 
 protected:
     std::string* currentlyProcessedValue;
-    uint64_t currentValueByteSize;
+    uint64_t currentStringByteSize;
+    
+    // Below var defines how many bytes are need to store the processed string
+    // length. Max expected value 8, as 8 bytes.
+    uint8_t currentStringLengthByteSize; 
 
     uint64_t calculateDataLengthInBytes() override;
    
