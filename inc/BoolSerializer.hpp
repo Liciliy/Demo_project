@@ -5,7 +5,7 @@
 #include <cstdint>
 
 // NOTE: This class could be a singleton.
-class BoolSerializer : public AbsDataSerializer
+class BoolSerializer final : public AbsDataSerializer
 {
 public:
     std::vector<uint8_t> serialize(const DataToSerialize& dts) override;

@@ -1,7 +1,6 @@
 #include "BoolSerializer.hpp"
 #include "NotSupportedException.hpp"
 
-#include <iostream>
 std::vector<uint8_t> BoolSerializer::serialize(const DataToSerialize& dts)
 {
     
@@ -12,7 +11,7 @@ std::vector<uint8_t> BoolSerializer::serialize(const DataToSerialize& dts)
     
     this->currentlyProcessedValue = *(dts.getBool() );
     
-    auto result = std::vector<uint8_t>(HEADER_LENGTH_IN_BYTES);
+    auto result = std::vector<uint8_t>(HEADER_SIZE_BYTES);
 
     this->fillContainerWithHeader(result);
 
@@ -28,7 +27,7 @@ void BoolSerializer::fillContainerWithHeader(std::vector<uint8_t>&  headerContai
 {
     uint8_t header = (BOOL_TYPE << TYPE_BIT_POS) | this->currentlyProcessedValue;
 
-    headerContainer[0] = header;
+    headerContainer[HEADER_POS] = header;
 
 }
 

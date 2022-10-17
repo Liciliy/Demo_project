@@ -27,9 +27,9 @@ struct DataToSerialize
     DataToSerialize() = delete;
 
     bool* getBool() const;
-    std::string* getString();
-    uint64_t* getUint();
-    int64_t* getInt();
+    std::string* getString() const; 
+    uint64_t* getUint() const;
+    int64_t* getInt() const;
 
 private:
     bool* boolToSerialize;

@@ -6,13 +6,15 @@
 #include <cstdint>
 
 // NOTE: This class could be a singleton.
-class UIntSerializer : public AbsDataSerializer
+class UIntSerializer final : public AbsDataSerializer
 {
 public:
-    std::vector<uint8_t> SerializeUInt(const uint64_t& valToSerialize);
+    std::vector<uint8_t> serialize(const DataToSerialize& dts);
 
 private:
     uint64_t currentlyProcessedValue;
+    uint64_t currentValueByteSize;
+    uint8_t currentValueIntID;
 
     uint64_t calculateDataLengthInBytes() override;
    

@@ -33,17 +33,17 @@ bool* DataToSerialize::getBool() const
    return this->boolToSerialize;
 }
 
-std::string* DataToSerialize::getString()
+std::string* DataToSerialize::getString() const
 {
     return this->stringToSerialize;
 }
 
-uint64_t* DataToSerialize::getUint()
+uint64_t* DataToSerialize::getUint() const
 {
     return this->uIntToSerialize;
 }
 
-int64_t* DataToSerialize::getInt()
+int64_t* DataToSerialize::getInt() const
 {
     return this->intToSerialize;
 }

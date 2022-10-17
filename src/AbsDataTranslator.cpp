@@ -1,6 +1,6 @@
 #include <AbsDataTranslator.hpp>
 
-const std::map<uint16_t, char> AbsDataTranslator::NUMBER_OF_BITS_TO_INT_ID =
+const std::map<uint64_t, char> AbsDataTranslator::NUMBER_OF_BYTES_TO_INT_ID =
 {
     {UINT64_SIZE_IN_BYTES , INT64_ID},
     {INT64_SIZE_IN_BYTES  , INT64_ID},
