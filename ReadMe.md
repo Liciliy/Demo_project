@@ -30,6 +30,11 @@ Following things can improve the program:
 - Integer values can be even more optimized: empty bytes on left/right can be discarded; fixed number of int stored bytes can be increased 
 (currently, int8, int16, int32, and int64 are supported).
 
+## Commands
+__make all__ - build the project.  
+__make clean__ - clean the project.  
+__make all ; ./bin/jsonTranslator json_gen_example.txt__ - build project and start the binary.
+
 ## Test input generation
 It is possible to generate a test input using a python script:  
 ```

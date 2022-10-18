@@ -68,8 +68,6 @@ int main(int argc, char** argv)
       // === Reading next data line === //  
         auto numOfChars = linesReader.fillBufferWithNextLine();
 
-        std::cout << "Chars red: " << numOfChars << " Str: " << lineBuffer << "\n";
-        
         if (numOfChars == 0)
         {
             break;
