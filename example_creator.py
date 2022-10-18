@@ -4,8 +4,8 @@ import random
 import string
 from random import randrange
 
-#number_of_examples = 10000000
-number_of_examples = 10000
+number_of_examples = 10000000
+#number_of_examples = 10000
 
 
 def get_bool():

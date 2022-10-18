@@ -18,6 +18,10 @@ static const std::string RECORDS_OUTPUT_FILE_NAME{"recordsOutput"};
 
 int main(int argc, char** argv)
 {
+    try
+    {
+    
+    
     static constexpr uint8_t FILE_PATH_ARG_POS{1};
     static constexpr uint8_t LINE_LENGTH_ARG_POS{2};
 
@@ -29,7 +33,6 @@ int main(int argc, char** argv)
         std::cout << "File path not provided! \nUsage:\n    jsonTranslator /path/to/input/file.txt" << std::endl;
         return 1;
     }
-    std::cout << "Input path is: " << argv[FILE_PATH_ARG_POS] << std::endl;
     
     uint64_t lineToReadMaxSize {1024*1024};
     if (argc > 2)
@@ -91,6 +94,12 @@ int main(int argc, char** argv)
     }
  
     keysDictHandler->dumpKeysDictToFile(KEYS_DICT_FILE_NAME);
+
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
 }
 
