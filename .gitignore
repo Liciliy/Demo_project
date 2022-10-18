@@ -4,3 +4,6 @@ json_gen_example.txt
 *.o
 *.d
 jsonTranslator
+keysDict
+keysDictFile
+dataFile
