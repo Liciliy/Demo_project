@@ -29,3 +29,9 @@ Following things can improve the program:
 - The input file can be read in bug N bytes chunks - afterwards the chunks can be serialized in separate threads.
 - Integer values can be even more optimized: empty bytes on left/right can be discarded; fixed number of int stored bytes can be increased 
 (currently, int8, int16, int32, and int64 are supported).
+
+## Test input generation
+It is possible to generate a test input using a python script:  
+```
+python3 example_creator.py
+```
