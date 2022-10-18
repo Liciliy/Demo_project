@@ -15,10 +15,10 @@ Example:
 ./bin/jsonTranslator json_gen_example.txt 300
 ```
 ## Details
-The program is built using C++11.
-The program is not a fault proof - since it is a demo project.
-The program supports only single data types - bool, string, and int.
-The program implements TLV-like approach to the serialization process.
+The program is built using C++11.  
+The program is not a fault proof - since it is a demo project.  
+The program supports only single data types - bool, string, and int.  
+The program implements TLV-like approach to the serialization process.  
 
 ### Serialization class diagram
 ![Alt text](Docs/Class_diagram.png?raw=true "Diagram")
