@@ -36,7 +36,7 @@ public:
     std::vector<uint8_t> serialize(const DataToSerialize& dts);
 
 protected:
-    std::string* currentlyProcessedValue;
+    const std::string* currentlyProcessedValue;
     uint64_t currentStringByteSize;
     
     // Below var defines how many bytes are need to store the processed string

@@ -1,26 +1,25 @@
 #include "DataToSerializeContainer.hpp"
-
-DataToSerialize::DataToSerialize(bool* boolPointer) : 
+DataToSerialize::DataToSerialize(const bool* boolPointer) : 
                                             boolToSerialize(boolPointer), 
                                             stringToSerialize(nullptr), 
                                             uIntToSerialize(nullptr), 
                                             intToSerialize(nullptr)
 {};
 
-DataToSerialize::DataToSerialize(std::string* strPointer) :
+DataToSerialize::DataToSerialize(const std::string* strPointer) :
                                             boolToSerialize(nullptr), 
                                             stringToSerialize(strPointer), 
                                             uIntToSerialize(nullptr), 
                                             intToSerialize(nullptr)
 {};
 
-DataToSerialize::DataToSerialize(uint64_t* uintPointer) : 
+DataToSerialize::DataToSerialize(const uint64_t* uintPointer) : 
                                             boolToSerialize(nullptr), 
                                             stringToSerialize(nullptr), 
                                             uIntToSerialize(uintPointer), 
                                             intToSerialize(nullptr)
 {};
-DataToSerialize::DataToSerialize(int64_t* intPointer) : 
+DataToSerialize::DataToSerialize(const int64_t* intPointer) : 
                                             boolToSerialize(nullptr), 
                                             stringToSerialize(nullptr), 
                                             uIntToSerialize(nullptr), 
@@ -28,22 +27,22 @@ DataToSerialize::DataToSerialize(int64_t* intPointer) :
 {};
 
 
-bool* DataToSerialize::getBool() const
+const bool* DataToSerialize::getBool() const
 {
-   return this->boolToSerialize;
+    return this->boolToSerialize;
 }
 
-std::string* DataToSerialize::getString() const
-{
+const std::string* DataToSerialize::getString() const
+{   
     return this->stringToSerialize;
 }
 
-uint64_t* DataToSerialize::getUint() const
+const uint64_t* DataToSerialize::getUint() const
 {
     return this->uIntToSerialize;
 }
 
-int64_t* DataToSerialize::getInt() const
+const int64_t* DataToSerialize::getInt() const
 {
     return this->intToSerialize;
 }

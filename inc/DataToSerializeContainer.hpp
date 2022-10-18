@@ -14,20 +14,20 @@
  */
 struct DataToSerialize
 {
-    DataToSerialize(bool* boolValue);
-    DataToSerialize(std::string* strPointer);
-    DataToSerialize(uint64_t* uintPointer);
-    DataToSerialize(int64_t* intPointer);
+    DataToSerialize(const bool* boolValue);
+    DataToSerialize(const std::string* strPointer);
+    DataToSerialize(const uint64_t* uintPointer);
+    DataToSerialize(const int64_t* intPointer);
     DataToSerialize() = delete;
 
-    bool* getBool() const;
-    std::string* getString() const; 
-    uint64_t* getUint() const;
-    int64_t* getInt() const;
+    const bool* getBool() const;
+    const std::string* getString() const; 
+    const uint64_t* getUint() const;
+    const int64_t* getInt() const;
 
 private:
-    bool* boolToSerialize;
-    std::string* stringToSerialize;
-    uint64_t* uIntToSerialize;
-    int64_t* intToSerialize;
+    const bool* boolToSerialize;
+    const std::string* stringToSerialize;
+    const uint64_t* uIntToSerialize;
+    const int64_t* intToSerialize;
 };
