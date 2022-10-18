@@ -2,8 +2,9 @@
 ## _Intro_
 This repo contains a demo program which performs read of a .txt file
 (with JSON records) and translating of the files contents into two files:
- - Binary file with input records (with keys replaced with integers)
- - Binary file with relations between str keys and corresponding integers.
+ - Binary file with input records (with keys replaced with integers)  
+ - Binary file with relations between str keys and corresponding integers.  
+
 
 ## Usage
 
@@ -20,7 +21,7 @@ The program supports only single data types - bool, string, and int.
 The program implements TLV-like approach to the serialization process.
 
 ### Serialization class diagram
-![Alt text](Docs/Class diagram.png?raw=true "Diagram")
+![Alt text](Docs/Class_diagram.png?raw=true "Diagram")
 
 
 ## Possible improvements
